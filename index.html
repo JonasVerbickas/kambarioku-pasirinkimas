@@ -1,116 +1,119 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="contact form example">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="contact form example">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
   <title>Kambariokų pasirinkimas</title>
-    <script>
-        var selected_vals = { "A": null, "B": null, "C": null, "D": null };
-        function makeNewSelection(field) {
-            console.log("Selected vals:", selected_vals);
-            let new_value = field.value;
-            let last_value_for_this_field = selected_vals[field.id];
-            if (last_value_for_this_field != field.value) { // if an actual change was made
-                for (const [key, value] of Object.entries(selected_vals)) { // check if that name isn't used anywhere before
-                    if (value === new_value) {
-                        field.value = "";
-                        alert(value + " jau yra pasirinktas!")
-                        return;
-                    }
-                }
-                selected_vals[field.id] = new_value;
-            }
+  <script>
+    var selected_vals = { "A": null, "B": null, "C": null, "D": null };
+    function makeNewSelection(field) {
+      console.log("Selected vals:", selected_vals);
+      let new_value = field.value;
+      let last_value_for_this_field = selected_vals[field.id];
+      if (last_value_for_this_field != field.value) { // if an actual change was made
+        for (const [key, value] of Object.entries(selected_vals)) { // check if that name isn't used anywhere before
+          if (value === new_value) {
+            field.value = "";
+            alert(value + " jau yra pasirinktas!")
+            return;
+          }
         }
-    </script>
+        selected_vals[field.id] = new_value;
+      }
+    }
+  </script>
 </head>
 
 <body class="container">
 
   <h1>Kambariokų pasirinkimas</h1>
-    <h4>Pasirink TOP 3. <small>Pirmas tau svarbiausias, o kiti mažiau.</small></h4>
+  <h4>Pasirink TOP 3. <small>Pirmas tau svarbiausias, o kiti mažiau.</small></h4>
 
-<!-- START HERE -->
+  <!-- START HERE -->
   <form class="gform pure-form pure-form-stacked" method="POST" data-email="jonasverbic@gmail.com"
-  action="https://script.google.com/macros/s/AKfycbwXnmb5MS2I9icswAwxSGapXtLRBDHtDuVQ_2sxe4kYeEElQ5QNcOi-A2q-7_xmIudiCQ/exec">
+    action="https://script.google.com/macros/s/AKfycbwXnmb5MS2I9icswAwxSGapXtLRBDHtDuVQ_2sxe4kYeEElQ5QNcOi-A2q-7_xmIudiCQ/exec">
     <!-- change the form action to your script url -->
     <div class="form-elements">
-          <div class="form-group form-inline">
-            <label for="A">1.</label>
-            <select id="A" name="1st choice" onchange="makeNewSelection(this)" required class="form-control ">
-                <option value="" selected disabled hidden>Pasirink čia</option>
-                <option>Jonas</option>
-                <option>Lukas</option>
-                <option>Tomas</option>
-                <option>Saulė</option>
-                <option>Vaiva</option>
-                <option>Nida</option>
-                <option>Meida</option>
-                <option>Gustas</option>
-            </select>
-        </div>
-        <div class="form-group form-inline">
-            <label for="B">2.</label>
-            <select id="B" name="2nd choice" onchange="makeNewSelection(this)" required class="form-control ">
-                <option value="" selected disabled hidden>Pasirink čia</option>
-                <option>Jonas</option>
-                <option>Lukas</option>
-                <option>Tomas</option>
-                <option>Saulė</option>
-                <option>Vaiva</option>
-                <option>Nida</option>
-                <option>Meida</option>
-                <option>Gustas</option>
-            </select>
-        </div>
-        <div class="form-group form-inline">
-            <label for="C">3.</label>
-            <select id="C" name="3rd choice" onchange="makeNewSelection(this)" required class="form-control">
-                <option value="" selected disabled hidden>Pasirink čia</option>
-                <option>Jonas</option>
-                <option>Lukas</option>
-                <option>Tomas</option>
-                <option>Saulė</option>
-                <option>Vaiva</option>
-                <option>Nida</option>
-                <option>Meida</option>
-                <option>Gustas</option>
-            </select>
-        </div>
-        <br>
-        <div class="form-group form-inline">
-            <label for="D">Tu esi:</label>
-            <select id="D" name="Form submitted by" onchange="makeNewSelection(this)" required class="form-control">
-                <option value="" selected disabled hidden>Pasirink čia</option>
-                <option>Jonas</option>
-                <option>Lukas</option>
-                <option>Tomas</option>
-                <option>Saulė</option>
-                <option>Vaiva</option>
-                <option>Nida</option>
-                <option>Meida</option>
-                <option>Gustas</option>
-            </select>
-        </div>
-        <div class="form-group ">
-            <button class="btn btn-primary" type="submit">Submit form</button>
-        </div>
+      <div class="form-group form-inline">
+        <label for="A">1.</label>
+        <select id="A" name="1st choice" onchange="makeNewSelection(this)" required class="form-control ">
+          <option value="" selected disabled hidden>Pasirink čia</option>
+          <option>Jonas</option>
+          <option>Lukas</option>
+          <option>Tomas</option>
+          <option>Saulė</option>
+          <option>Vaiva</option>
+          <option>Nida</option>
+          <option>Meida</option>
+          <option>Gustas</option>
+        </select>
+      </div>
+      <div class="form-group form-inline">
+        <label for="B">2.</label>
+        <select id="B" name="2nd choice" onchange="makeNewSelection(this)" required class="form-control ">
+          <option value="" selected disabled hidden>Pasirink čia</option>
+          <option>Jonas</option>
+          <option>Lukas</option>
+          <option>Tomas</option>
+          <option>Saulė</option>
+          <option>Vaiva</option>
+          <option>Nida</option>
+          <option>Meida</option>
+          <option>Gustas</option>
+        </select>
+      </div>
+      <div class="form-group form-inline">
+        <label for="C">3.</label>
+        <select id="C" name="3rd choice" onchange="makeNewSelection(this)" required class="form-control">
+          <option value="" selected disabled hidden>Pasirink čia</option>
+          <option>Jonas</option>
+          <option>Lukas</option>
+          <option>Tomas</option>
+          <option>Saulė</option>
+          <option>Vaiva</option>
+          <option>Nida</option>
+          <option>Meida</option>
+          <option>Gustas</option>
+        </select>
+      </div>
+      <br>
+      <div class="form-group form-inline">
+        <label for="D">Tu esi:</label>
+        <select id="D" name="Form submitted by" onchange="makeNewSelection(this)" required class="form-control">
+          <option value="" selected disabled hidden>Pasirink čia</option>
+          <option>Jonas</option>
+          <option>Lukas</option>
+          <option>Tomas</option>
+          <option>Saulė</option>
+          <option>Vaiva</option>
+          <option>Nida</option>
+          <option>Meida</option>
+          <option>Gustas</option>
+        </select>
+      </div>
+      <div class="form-group ">
+        <button class="btn btn-primary" type="submit">Submit form</button>
+      </div>
 
-        <fieldset style="display: none;">
-          <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
-          <input id="honeypot" type="text" name="honeypot" value="" />
+      <fieldset style="display: none;">
+        <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty
+          to submit the form! Otherwise, we assume the user is a spam bot.</label>
+        <input id="honeypot" type="text" name="honeypot" value="" />
       </fieldset>
-      <div class="thankyou_message" style="display:none;">
+    </div>
+    <div class="thankyou_message" style="display:none;">
       <h2>Tavo pasirinkimai buvo priimti!</h2>
     </div>
-</div>
   </form>
 
   <!-- Submit the Form to Google Using "AJAX" -->
   <script data-cfasync="false" src="form-submission-handler.js"></script>
-<!-- END -->
+  <!-- END -->
 
 </body>
+
 </html>
