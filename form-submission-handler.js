@@ -74,6 +74,12 @@
           if (formElements) {
             formElements.style.display = "none"; // hide form
           }
+          var headings = document.getElementById('headings');
+          if(headings)
+          {
+            headings.style.display = "none";
+          }
+
           var thankYouMessage = form.querySelector(".thankyou_message");
           if (thankYouMessage) {
             thankYouMessage.style.display = "block";
